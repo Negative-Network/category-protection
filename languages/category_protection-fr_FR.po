@@ -1,0 +1,65 @@
+# Pierre Blarre <pierre@negative-network.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: Category Protection v1.0\n"
+"POT-Creation-Date: 2014-07-03 15:33+0100\n"
+"PO-Revision-Date: 2014-07-03 15:59+0200\n"
+"Last-Translator: Pierre Blarre <pierre@negative-network.com>\n"
+"Language-Team: contact@negative-network.com\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Poedit-KeywordsList: __();_e()\n"
+"X-Poedit-Basepath: ../\n"
+
+#: ../category-protection.php:90
+msgid "This password did not work"
+msgstr "Ce mot de passe n'a pas fonctionné"
+
+#: ../category-protection.php:108
+msgid "This post belongs to password protected categorie(s)"
+msgstr ""
+"Cet article appartient à une (des) catégorie(s) protégée(s) par mot de passe"
+
+#: ../category-protection.php:109
+msgid "If you know the password for one of the(se) categorie(s), please enter it here"
+msgstr ""
+"Si vous connaissez le mot de passe pour cette/ces catégorie(s), veuillez "
+"l'entrer ici"
+
+#: ../category-protection.php:112
+msgid "Submit password"
+msgstr "Envoyer le mot de passe"
+
+#: ../category-protection.php:117
+msgid "You failed 5 times in a row to give a correct password. To avoid spamming, you must wait for 5min before trying again"
+msgstr ""
+"Vous avez raté 5 fois de suite pour entrer un mot de passe valide. Pour "
+"éviter le spam, vos devez attendre 5min avant d'essayer à nouveau"
+
+#: ../category-protection.php:164
+msgid "Category Protection"
+msgstr "Protection des catégories"
+
+#: ../category-protection.php:164
+msgid "Passwords saved"
+msgstr "Mots de passe sauvegardés"
+
+#: ../category-protection.php:187
+msgid "Enter passwords for the categories you want to protect"
+msgstr "Entrez des mots de passe pour les catégories que vous souhaitez protéger"
+
+#: ../category-protection.php:204
+msgid "Save passwords"
+msgstr "Sauvegarder les mots de passe"
+
+#: ../category-protection.php:209
+msgid "If you feel this plugin has been helpful and you'd like payin' us a beer, you're more than welcome, we love beer! :)"
+msgstr "Si vous trouvez cette extension utile et que vous souhaitez nous offrir une bière, ne vous genez pas, on adore la bière! :)"
+
+#: ../category-protection.php:209
+msgid "Go to Paypal to make a donation"
+msgstr "Aller sur Paypal pour nous faire une donation"
