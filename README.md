@@ -17,3 +17,7 @@ If you find a bug please let me know or feel free to clone/fix/ask for a pull re
 > **Warning** : This does not store the category passwords into the posts or pages, just in the options database table. As a result, if you deactivate this plugin, your posts/pages will be left unprotected.
 
 > Right now the plugin is available in English and French, please feel free to add translations in your own language and ask for a pull request.
+
+
+> **Knonw issue** : Some themes (or potentially plugins) are outputing HTML outsite the scope of the the_content() and the comments_template() functions.
+This plugin will not protect the output outside these functions scope. If you have a solution for this, please let me know!
