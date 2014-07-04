@@ -44,7 +44,7 @@ function category_protection($content) {
 
     global $post;
 
-    $protected_categories = get_option('protected_categories');
+    $protected_categories = json_decode(get_option('protected_categories'),true);
     $post = get_post();
     
     //it's a post
@@ -103,7 +103,7 @@ function category_protection($content) {
                     $categories = get_the_category();
                     $names = array();
                     foreach($categories as $c) {
-                        if(in_array($c->cat_ID, $cats)) $names[$c->cat_ID] = $c->name;
+                        if(key_exists($c->cat_ID, $protected_categories)) $names[$c->cat_ID] = $c->name;
                     }
                     $names = implode(', ',$names);
                     
@@ -138,22 +138,27 @@ add_filter('the_content', 'category_protection');
  * hide comments template if post/page has a password protected category
  */
 function category_protection_comments_template($comment_template) {
-    
+
     global $post;
-    
-    if (!isset($_SESSION['protected_categories'])) $_SESSION['protected_categories'] = array();
+
+    if (!isset($_SESSION['protected_categories']))
+        $_SESSION['protected_categories'] = array();
 
     $protected_categories = get_option('protected_categories');
     $post_categories = wp_get_post_categories($post);
-    
-    //we check if at least one of the post category is protected
-    $cats = array_intersect(array_keys($protected_categories), $post_categories);
-    $post = get_post();
-    
-    //the password is already set in the cookie
-    if ( ! (!empty($_SESSION['protected_categories']) AND array_intersect($cats, array_keys($_SESSION['protected_categories'])) ) )
+
+
+    if (!empty($protected_categories) and ! empty($post_categories) and is_array($protected_categories) and is_array($post_categories)) {
+        //we check if at least one of the post category is protected
+        $cats = array_intersect(array_keys($protected_categories), $post_categories);
+        $post = get_post();
+
+        //the password is already set in the cookie
+        if (!(!empty($_SESSION['protected_categories']) AND array_intersect($cats, array_keys($_SESSION['protected_categories'])) ))
             return dirname(__FILE__) . '/empty.php';
+    }
 }
+
 add_filter('comments_template', 'category_protection_comments_template');
 
 
@@ -176,7 +181,7 @@ function category_protection_setup() {
     }
 
     if (get_option('protected_categories')) {
-        $protected_categories = get_option('protected_categories');
+        $protected_categories = json_decode(get_option('protected_categories'),true);
     } else {
         add_option('protected_categories', json_encode(array()), "Category Protection Values", "yes");
     }
