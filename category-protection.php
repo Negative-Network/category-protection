@@ -144,7 +144,7 @@ function category_protection_comments_template($comment_template) {
     if (!isset($_SESSION['protected_categories']))
         $_SESSION['protected_categories'] = array();
 
-    $protected_categories = get_option('protected_categories');
+    $protected_categories = json_decode(get_option('protected_categories'),true);
     $post_categories = wp_get_post_categories($post);
 
 
