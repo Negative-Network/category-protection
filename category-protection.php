@@ -52,9 +52,9 @@ function category_protection($content) {
 
         //get the post categories
         $post_categories = wp_get_post_categories($post);
-
+        
         //if there is protected categories and the post has categories, we perform the check
-        if (!empty($protected_categories) and ! empty($post_categories)) {
+        if (!empty($protected_categories) and ! empty($post_categories) and is_array($protected_categories) and is_array($post_categories)) {
 
             //we check if at least one of the post category is protected
             $cats = array_intersect(array_keys($protected_categories), $post_categories);
