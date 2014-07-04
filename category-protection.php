@@ -51,7 +51,7 @@ function category_protection($content) {
     if ($post->post_type == 'post' OR $post->post_type == 'page') {
 
         //get the post categories
-        $post_categories = wp_get_post_categories($post);
+        $post_categories = wp_get_post_categories($post->ID);
         
         //if there is protected categories and the post has categories, we perform the check
         if (!empty($protected_categories) and ! empty($post_categories) and is_array($protected_categories) and is_array($post_categories)) {
@@ -60,7 +60,6 @@ function category_protection($content) {
             $cats = array_intersect(array_keys($protected_categories), $post_categories);
             
             if (!empty($cats)) { //we have a protected category
-
                 $found = false;
                 $error = '';
                 
@@ -145,7 +144,7 @@ function category_protection_comments_template($comment_template) {
         $_SESSION['protected_categories'] = array();
 
     $protected_categories = json_decode(get_option('protected_categories'),true);
-    $post_categories = wp_get_post_categories($post);
+    $post_categories = wp_get_post_categories($post->ID);
 
 
     if (!empty($protected_categories) and ! empty($post_categories) and is_array($protected_categories) and is_array($post_categories)) {
